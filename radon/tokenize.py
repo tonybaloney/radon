@@ -6,11 +6,59 @@ import collections
 import itertools as _itertools
 import re
 from token import *
-from token import EXACT_TOKEN_TYPES
 import token
 
 __all__ = token.__all__ + ["tokenize", "generate_tokens", "TokenInfo"]
 del token
+
+EXACT_TOKEN_TYPES = {
+    '(':   LPAR,
+    ')':   RPAR,
+    '[':   LSQB,
+    ']':   RSQB,
+    ':':   COLON,
+    ',':   COMMA,
+    ';':   SEMI,
+    '+':   PLUS,
+    '-':   MINUS,
+    '*':   STAR,
+    '/':   SLASH,
+    '|':   VBAR,
+    '&':   AMPER,
+    '<':   LESS,
+    '>':   GREATER,
+    '=':   EQUAL,
+    '.':   DOT,
+    '%':   PERCENT,
+    '{':   LBRACE,
+    '}':   RBRACE,
+    '==':  EQEQUAL,
+    '!=':  NOTEQUAL,
+    '<=':  LESSEQUAL,
+    '>=':  GREATEREQUAL,
+    '~':   TILDE,
+    '^':   CIRCUMFLEX,
+    '<<':  LEFTSHIFT,
+    '>>':  RIGHTSHIFT,
+    '**':  DOUBLESTAR,
+    '+=':  PLUSEQUAL,
+    '-=':  MINEQUAL,
+    '*=':  STAREQUAL,
+    '/=':  SLASHEQUAL,
+    '%=':  PERCENTEQUAL,
+    '&=':  AMPEREQUAL,
+    '|=':  VBAREQUAL,
+    '^=':  CIRCUMFLEXEQUAL,
+    '<<=': LEFTSHIFTEQUAL,
+    '>>=': RIGHTSHIFTEQUAL,
+    '**=': DOUBLESTAREQUAL,
+    '//':  DOUBLESLASH,
+    '//=': DOUBLESLASHEQUAL,
+    '...': ELLIPSIS,
+    '->':  RARROW,
+    '@':   AT,
+    '@=':  ATEQUAL,
+}
 
 
 class TokenInfo(collections.namedtuple('TokenInfo', 'type string start end line')):
